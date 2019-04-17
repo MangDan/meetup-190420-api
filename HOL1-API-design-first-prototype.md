@@ -59,55 +59,55 @@ API 설계 문서를 작성하고 Mock Test를 하기 위한 Apiary 계정을 �
 >
 >    + Headers
 >    
->            api_key: adfadfvkljadflkjasdflkasdf
+>             api_key: adfadfvkljadflkjasdflkasdf
 >
 >+ Parameters
 >    + title : 대부 (string, optional) - 제목
 >        
 >+ Response 200 (application/json)
 >
->        [
->            {
->                "id": 278,
->                "title": "쇼생크 탈출",
->                "vote_count": 12728,
->                "vote_average": 8.7,
->                "poster_path": "/iZdih9zQAqxNadp0ScHyYRXsXLf.jpg",
->                "release_date": "1995-01-28"
->            },
->            {
->                "id": 238,
->                "title": "대부",
->                "vote_count": 9746,
->                "vote_average": 8.6,
->                "poster_path": "/cOwVs8eYA4G9ZQs7hIRSoiZr46Q.jpg",
->                "release_date": "1972-12-27"
->            },
->            {
->                "id": 129,
->                "title": "센과 치히로의 행방불명",
->                "vote_count": 7174,
->                "vote_average": 8.5,
->                "poster_path": "/mD49waY0XR7HNrS13r63tfgYT08.jpg",
->                "release_date": "2002-06-28"
->            },
->            {
->                "id": 424,
->                "title": "쉰들러 리스트",
->                "vote_count": 7746,
->                "vote_average": 8.5,
->                "poster_path": "/oyyUcGwLX7LTFS1pQbLrQpyzIyt.jpg",
->                "release_date": "1994-03-05"
->            },
->            {
->                "id": 550,
->                "title": "파이트 클럽",
->                "vote_count": 15870,
->                "vote_average": 8.4,
->                "poster_path": "/kabpExFv9JLp778w9ZtCtZnWH9N.jpg",
->                "release_date": "1999-11-13"
->            }
->        ]
+>         [
+>             {
+>                 "id": 278,
+>                 "title": "쇼생크 탈출",
+>                 "vote_count": 12728,
+>                 "vote_average": 8.7,
+>                 "poster_path": "/iZdih9zQAqxNadp0ScHyYRXsXLf.jpg",
+>                 "release_date": "1995-01-28"
+>             },
+>             {
+>                 "id": 238,
+>                 "title": "대부",
+>                 "vote_count": 9746,
+>                 "vote_average": 8.6,
+>                 "poster_path": "/cOwVs8eYA4G9ZQs7hIRSoiZr46Q.jpg",
+>                 "release_date": "1972-12-27"
+>             },
+>             {
+>                 "id": 129,
+>                 "title": "센과 치히로의 행방불명",
+>                 "vote_count": 7174,
+>                 "vote_average": 8.5,
+>                 "poster_path": "/mD49waY0XR7HNrS13r63tfgYT08.jpg",
+>                 "release_date": "2002-06-28"
+>             },
+>             {
+>                 "id": 424,
+>                 "title": "쉰들러 리스트",
+>                 "vote_count": 7746,
+>                 "vote_average": 8.5,
+>                 "poster_path": "/oyyUcGwLX7LTFS1pQbLrQpyzIyt.jpg",
+>                 "release_date": "1994-03-05"
+>             },
+>             {
+>                 "id": 550,
+>                 "title": "파이트 클럽",
+>                 "vote_count": 15870,
+>                 "vote_average": 8.4,
+>                 "poster_path": "/kabpExFv9JLp778w9ZtCtZnWH9N.jpg",
+>                 "release_date": "1999-11-13"
+>             }
+>         ]
 >
 >### 영화 상세 조회 [GET /api/search/v1/movies/{id}]
 >영화 ID로 영화 상세 조회
@@ -116,7 +116,7 @@ API 설계 문서를 작성하고 Mock Test를 하기 위한 Apiary 계정을 �
 >
 >    + Headers
 >    
->            api_key: adfadfvkljadflkjasdflkasdf
+>             api_key: adfadfvkljadflkjasdflkasdf
 >    
 >+ Parameters
 >    + id : 278 (number, required) - 영화 아이디
@@ -125,19 +125,19 @@ API 설계 문서를 작성하고 Mock Test를 하기 위한 Apiary 계정을 �
 >
 >    + Headers
 >
->            Location: /api/v1/movie/278
+>             Location: /api/v1/movie/278
 >
 >    + Body
 >
->            {
->                "id": 278,
->                "title": "쇼생크 탈출",
->                "vote_count": 12728,
->                "vote_average": 8.7,
->                "poster_path": "/iZdih9zQAqxNadp0ScHyYRXsXLf.jpg",
->                "release_date": "1995-01-28"
->                "overview": "촉망받는 은행 간부 앤디 듀프레인(팀 로빈슨)은 아내와 그녀의 정부를 살해했다는 누명을 쓴다. 주변의 증언과 살해 현장의 그럴듯한 증거들로 그는 종신형을 선고받고 악질범들만 수용한다는 지옥같은 교도소 쇼생크로 향한다. 인간 말종 쓰레기들만 모인 그곳에서 그는 이루 말할 수 없는 억압과 짐승보다 못한 취급을 당한다. 그러던 어느 날, 간수의 세금을 면제받게 해 준 덕분에 그는 일약 교도소의 비공식 회계사로 일하게 된다. 그 와중에 교도소 소장은 죄수들을 이리저리 부리면서 검은 돈을 긁어 모으고 앤디는 이 돈을 세탁하여 불려주면서 그의 돈을 관리하는데..."
->            }
+>             {
+>                 "id": 278,
+>                 "title": "쇼생크 탈출",
+>                 "vote_count": 12728,
+>                 "vote_average": 8.7,
+>                 "poster_path": "/iZdih9zQAqxNadp0ScHyYRXsXLf.jpg",
+>                 "release_date": "1995-01-28"
+>                 "overview": "촉망받는 은행 간부 앤디 듀프레인(팀 로빈슨)은 아내와 그녀의 정부를 살해했다는 누명을 쓴다. 주변의 증언과 살해 현장의 그럴듯한 증거들로 그는 종신형을 선고받고 악질범들만 수용한다는 지옥같은 교도소 쇼생크로 향한다. 인간 말종 쓰레기들만 모인 그곳에서 그는 이루 말할 수 없는 억압과 짐승보다 못한 취급을 당한다. 그러던 어느 날, 간수의 세금을 면제받게 해 준 덕분에 그는 일약 교도소의 비공식 회계사로 일하게 된다. 그 와중에 교도소 소장은 죄수들을 이리저리 부리면서 검은 돈을 긁어 모으고 앤디는 이 돈을 세탁하여 불려주면서 그의 돈을 관리하는데..."
+>             }
 >            
 >
 ># Group 영화인 API
@@ -150,7 +150,7 @@ API 설계 문서를 작성하고 Mock Test를 하기 위한 Apiary 계정을 �
 >
 >    + Headers
 >    
->            api_key: adfadfvkljadflkjasdflkasdf
+>             api_key: adfadfvkljadflkjasdflkasdf
 >
 >+ Parameters
 >    + filmography : 쇼생크 (string, required) - 필모 그래피
@@ -165,7 +165,7 @@ API 설계 문서를 작성하고 Mock Test를 하기 위한 Apiary 계정을 �
 >
 >    + Headers
 >    
->            api_key: adfadfvkljadflkjasdflkasdf
+>             api_key: adfadfvkljadflkjasdflkasdf
 >
 >+ Parameters
 >    + id : 10084614 (number, required) - 영화인 아이디
