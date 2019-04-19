@@ -41,11 +41,12 @@ public class MovieRepository {
         List<Movie> movieArray = new ArrayList<Movie>();
         String clause = "";
         if(!title.equals(""))
-        clause = "WHERE TITLE LIKE ? || '%'";
+        clause = "AND TITLE LIKE ? || '%'";
         
         StringBuffer queryBuffer = new StringBuffer();
-        queryBuffer.append("SELECT ID, TITLE, POSTER_PATH, VOTE_COUNT, VOTE_AVERAGE, RELEASE_DATE FROM MOVIE " + clause + " ROWNUM <= 50 ORDER BY ID DESC");
+        queryBuffer.append("SELECT ID, TITLE, POSTER_PATH, VOTE_COUNT, VOTE_AVERAGE, RELEASE_DATE FROM MOVIE WHERE  ROWNUM <= 50 " + clause + " ORDER BY ID DESC");
 
+        System.out.println(queryBuffer.toString());
         try {
             Connection conn = this.dataSource.getConnection();
             
