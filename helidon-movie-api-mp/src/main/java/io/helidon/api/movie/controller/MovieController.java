@@ -26,6 +26,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.ResponseBuilder;
+import javax.ws.rs.core.Response.Status;
 
 import io.helidon.api.movie.service.MovieService;
 
@@ -60,7 +62,10 @@ public class MovieController {
     @Path("/movies/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response findMovieById(@PathParam("id") int id) {
-        return Response.ok(movieService.findMovieByid(id)).build();
+        ResponseBuilder builder = Response.status(Status.OK);
+        builder.header("Location", "/api/search/v1/movie/"+id);
+
+        return builder.type(MediaType.APPLICATION_JSON).entity(movieService.findMovieByid(id)).build();
     }
 
     @GET

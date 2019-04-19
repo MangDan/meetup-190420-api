@@ -41,7 +41,10 @@ public final class Main {
 
         Server server = startServer();
 
-        System.out.println("http://localhost:" + server.port() + "/greet");
+        System.out.println("http://localhost:" + server.port() + "/api/search/v1/movies");
+        System.out.println("http://localhost:" + server.port() + "/api/search/v1/movies/1930");
+        System.out.println("http://localhost:" + server.port() + "/api/search/v1/movies-people?filmography=어벤져스");
+        System.out.println("http://localhost:" + server.port() + "/api/search/v1/movies-people/10016538");
     }
 
     /**
