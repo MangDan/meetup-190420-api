@@ -86,7 +86,6 @@ public class MoviePeopleRepository {
                 moviePeople.setId(rs.getInt("id"));
                 moviePeople.setName(Optional.ofNullable(rs.getString("name")).orElse(""));
                 moviePeople.setRole(Optional.ofNullable(rs.getString("role")).orElse(""));
-                moviePeople.setFilmography(Optional.ofNullable(rs.getString("filmography")).orElse(""));
             }
 
         } catch (SQLException e) {
