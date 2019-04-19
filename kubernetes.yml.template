@@ -35,7 +35,7 @@ spec:
         image: ${DOCKER_REGISTRY}/${DOCKER_REPO}:${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}
         imagePullPolicy: Always
         ports:
-        - name: helidon-movie-api-mp
+        - name: http
           containerPort: 8080
           protocol: TCP
       imagePullSecrets:
