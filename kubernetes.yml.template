@@ -16,26 +16,26 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: msa-apidev-mp
+  name: helidon-movie-api-mp
   labels:
     commit: ${WERCKER_GIT_COMMIT}
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: msa-apidev-mp
+      app: helidon-movie-api-mp
   template:
     metadata:
       labels:
-        app: msa-apidev-mp
+        app: helidon-movie-api-mp
         commit: ${WERCKER_GIT_COMMIT}
     spec:
       containers:
-      - name: msa-apidev-mp
+      - name: helidon-movie-api-mp
         image: ${DOCKER_REGISTRY}/${DOCKER_REPO}:${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}
         imagePullPolicy: Always
         ports:
-        - name: msa-apidev-mp
+        - name: helidon-movie-api-mp
           containerPort: 8080
           protocol: TCP
       imagePullSecrets:
@@ -44,9 +44,9 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: msa-apidev-mp
+  name: helidon-movie-api-mp
   labels:
-    app: msa-apidev-mp
+    app: helidon-movie-api-mp
     commit: ${WERCKER_GIT_COMMIT}
 spec:
   ports:
@@ -54,5 +54,5 @@ spec:
     targetPort: 8080
     name: http
   selector:
-    app: msa-apidev-mp
+    app: helidon-movie-api-mp
   type: LoadBalancer

@@ -2,12 +2,12 @@ color: true
 reporter: apiary
 custom:
   apiaryApiKey: fe79f8fc114e7f3b24681e108ce6a422
-  apiaryApiName: booksapi25
+  apiaryApiName: api722
 dry-run: null
 hookfiles: null
 language: nodejs
 require: null
-server: java -jar msa-apidev-mp/target/msa-apidev-mp.jar
+server: java -jar helidon-movie-api-mp/target/helidon-movie-api-mp.jar
 server-wait: 10
 init: false
 names: false

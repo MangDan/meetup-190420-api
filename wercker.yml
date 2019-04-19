@@ -15,7 +15,7 @@ build:
         packages: maven
     - script:
         name: maven build
-        cwd: msa-apidev-mp
+        cwd: helidon-movie-api-mp
         code: mvn clean package 
     - npm-install
     - script:
@@ -34,9 +34,9 @@ push-release:
         repository: $DOCKER_REGISTRY/$DOCKER_REPO
         registry: https://$DOCKER_REGISTRY/v2
         tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
-        working-dir: /pipeline/source/msa-apidev-mp
+        working-dir: /pipeline/source/helidon-movie-api-mp
         ports: 8080
-        cmd: java -jar target/msa-apidev-mp.jar
+        cmd: java -jar target/helidon-movie-api-mp.jar
 
 #Deploy our container from the Oracle Container Registry to the Oracle Container Engine (Kubernetes)
 deploy-to-cluster:
@@ -66,7 +66,7 @@ deploy-to-cluster:
       code: cat kubernetes.yml
 
   - kubectl:
-      name: deploy msa-apidev-mp to kubernetes
+      name: deploy helidon-movie-api-mp to kubernetes
       server: $KUBERNETES_MASTER
       token: $KUBERNETES_AUTH_TOKEN
       insecure-skip-tls-verify: true
