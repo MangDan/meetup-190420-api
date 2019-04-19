@@ -21,12 +21,14 @@ import static io.helidon.config.ConfigSources.file;
 import static io.helidon.config.PollingStrategies.regular;
 
 import java.io.IOException;
+import java.net.URI;
 import java.time.Duration;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 import io.helidon.config.Config;
 import io.helidon.config.OverrideSources;
+import io.helidon.config.git.GitConfigSourceBuilder;
 import io.helidon.microprofile.server.Server;
 
 /**
@@ -88,16 +90,24 @@ public final class Main {
         logger.info("================ application.conf 쓰기 시작 ==================\n"+
         String.format("app.page-size is %d\n"       // 정수
                 + "app.storageEnabled is %b\n"      // 부울
-                + "app.basic-range is %s\n",        // 실수
+                + "app.basic-range is %s\n",        // 문자
                 hoconConfig.get("app.page-size").asInt().get(), 
                 hoconConfig.get("app.storageEnabled").asBoolean().orElse(false),
                 hoconConfig.get("app.basic-range").asList(Integer.class).get())
         + "================ application.conf 쓰기 완료 ==================");
 
 
+        logger.info("git config 읽기 시작");
+        Config gitConfig = Config.create(
+                GitConfigSourceBuilder.create("git-application.conf")
+                        .uri(URI.create("https://github.com/MangDan/meetup-190420-api.git"))
+                        .branch("master")
+                        .build());
 
-
-
+        logger.info("================ git config 쓰기 시작 ==================\n"+
+        String.format("git.greeting is %s\n",       // 문자
+                gitConfig.get("greeting").asString().get())
+        + "================ git config 쓰기 완료 ==================");
 
         /*
          * Overriding & Runtime Loading

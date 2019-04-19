@@ -60,7 +60,7 @@ public class GreetResource {
      */
     private final GreetingProvider greetingProvider;
     private final String appName;
-
+    private FaultTolerance faultTolerance;
     /**
      * Using constructor injection to get a configuration property.
      * By default this gets the value from META-INF/microprofile-config
@@ -68,9 +68,10 @@ public class GreetResource {
      * @param greetingConfig the configured greeting message
      */
     @Inject
-    public GreetResource(GreetingProvider greetingConfig, @ConfigProperty(name = "app.name") String appName) {
+    public GreetResource(GreetingProvider greetingConfig, FaultTolerance faultTolerance, @ConfigProperty(name = "app.name") String appName) {
         this.greetingProvider = greetingConfig;
         this.appName = appName;
+        this.faultTolerance = faultTolerance;
     }
 
     /**
@@ -126,6 +127,19 @@ public class GreetResource {
         return Response.status(Response.Status.NO_CONTENT).build();
     }
 
+    @SuppressWarnings("checkstyle:designforextension")
+    @Path("/fault-tolerance")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public JsonObject faultTolerance() {
+
+        String message = faultTolerance.faultTolerance();
+
+        JsonObject jsonObject = JSON.createObjectBuilder().add("message", message).build();
+
+        return jsonObject;
+    }
+    
     private JsonObject createResponse(String who) {
         String msg = String.format("%s %s!", greetingProvider.getMessage(), who);
 

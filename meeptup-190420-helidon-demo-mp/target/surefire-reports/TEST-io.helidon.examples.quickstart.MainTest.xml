@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="io.helidon.examples.quickstart.MainTest" time="2.61" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="io.helidon.examples.quickstart.MainTest" time="1.358" tests="1" errors="1" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home/jre/lib"/>
@@ -34,7 +34,6 @@
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="os.version" value="10.14.3"/>
     <property name="library.jansi.path" value="/Users/DonghuKim/Software/apache/apache-maven-3.6.0/lib/jansi-native"/>
-    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
     <property name="user.home" value="/Users/DonghuKim"/>
     <property name="user.timezone" value="Asia/Seoul"/>
     <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
@@ -59,9 +58,26 @@
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
-    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
-    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|lx.astxsvc.com|*.lx.astxsvc.com"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="testHelloWorld" classname="io.helidon.examples.quickstart.MainTest" time="0.412"/>
+  <testcase name="io.helidon.examples.quickstart.MainTest" classname="io.helidon.examples.quickstart.MainTest" time="1.357">
+    <error message="java.lang.NoSuchMethodException" type="org.jboss.weld.exceptions.DeploymentException">org.jboss.weld.exceptions.DeploymentException: java.lang.NoSuchMethodException
+	at io.helidon.examples.quickstart.MainTest.startTheServer(MainTest.java:39)
+Caused by: org.eclipse.microprofile.faulttolerance.exceptions.FaultToleranceDefinitionException: java.lang.NoSuchMethodException
+	at io.helidon.examples.quickstart.MainTest.startTheServer(MainTest.java:39)
+Caused by: java.lang.NoSuchMethodException
+	at io.helidon.examples.quickstart.MainTest.startTheServer(MainTest.java:39)
+</error>
+    <system-err><![CDATA[4월 19, 2019 1:12:43 오후 org.jboss.weld.bootstrap.WeldStartup <clinit>
+INFO: WELD-000900: 3.0.3 (Final)
+4월 19, 2019 1:12:43 오후 org.jboss.weld.environment.deployment.discovery.DiscoveryStrategyFactory create
+INFO: WELD-ENV-000020: Using jandex for bean discovery
+4월 19, 2019 1:12:43 오후 org.jboss.weld.bootstrap.WeldStartup startContainer
+INFO: WELD-000101: Transactional services not available. Injection of @Inject UserTransaction not available. Transactional observers will be invoked synchronously.
+4월 19, 2019 1:12:43 오후 org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] private org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider.processAnnotatedType(@Observes ProcessAnnotatedType) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+4월 19, 2019 1:12:43 오후 org.jboss.weld.bootstrap.events.BeforeBeanDiscoveryImpl addAnnotatedType
+WARN: WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType<?>) used for class org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider$JaxRsParamProducer is deprecated from CDI 1.1!
+]]></system-err>
+  </testcase>
 </testsuite>
