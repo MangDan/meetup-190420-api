@@ -8,7 +8,7 @@ public class Movie{
     private int id;
     private String title;
     private int vote_count;
-    private String vote_average;
+    private int vote_average;
     private String poster_path;
     private String release_date;
     private String overview;
@@ -52,15 +52,15 @@ public class Movie{
         return this;
     }
 
-    public String getVote_average() {
+    public int getVote_average() {
         return this.vote_average;
     }
 
-    public void setVote_average(String vote_average) {
+    public void setVote_average(int vote_average) {
         this.vote_average = vote_average;
     }
 
-    public Movie vote_average(String vote_average) {
+    public Movie vote_average(int vote_average) {
         this.vote_average = vote_average;
         return this;
     }

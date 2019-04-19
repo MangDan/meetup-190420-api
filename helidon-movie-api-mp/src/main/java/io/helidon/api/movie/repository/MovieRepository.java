@@ -62,7 +62,7 @@ public class MovieRepository {
                 movie.setTitle(Optional.ofNullable(rs.getString("title")).orElse(""));
                 movie.setPoster_path(Optional.ofNullable(rs.getString("poster_path")).orElse(""));
                 movie.setVote_count(Optional.ofNullable(rs.getInt("vote_count")).orElse(0));
-                movie.setVote_average(Optional.ofNullable(rs.getString("vote_average")).orElse(""));
+                movie.setVote_average(Optional.ofNullable(rs.getInt("vote_average")).orElse(0));
                 movie.setRelease_date(Optional.ofNullable(rs.getString("release_date")).orElse(""));
                 movieArray.add(movie);
             }
@@ -88,7 +88,7 @@ public class MovieRepository {
                 movie.setId(rs.getInt("id"));
                 movie.setTitle(Optional.ofNullable(rs.getString("title")).orElse(""));
                 movie.setVote_count(Optional.ofNullable(rs.getInt("vote_count")).orElse(0));
-                movie.setVote_average(Optional.ofNullable(rs.getString("vote_average")).orElse(""));
+                movie.setVote_average(Optional.ofNullable(rs.getInt("vote_average")).orElse(0));
                 movie.setPoster_path(Optional.ofNullable(rs.getString("poster_path")).orElse(""));
                 movie.setRelease_date(Optional.ofNullable(rs.getString("release_date")).orElse(""));
                 movie.setOverview(Optional.ofNullable(rs.getString("overview")).orElse(""));

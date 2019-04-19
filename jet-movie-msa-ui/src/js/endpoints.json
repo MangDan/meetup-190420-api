@@ -1,0 +1,4 @@
+{
+    "movies": "http://132.145.161.244:8011/api/search/v1/movies",
+    "image": "https://image.tmdb.org/t/p/w185"
+}

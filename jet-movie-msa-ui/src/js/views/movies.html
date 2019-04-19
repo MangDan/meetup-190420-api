@@ -1,0 +1,114 @@
+<!--
+ Copyright (c) 2014, 2019, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-padding">
+  <h1>Movie List</h1>
+  <div>
+    <div id="root">
+        <div class="oj-flex">
+          <div class="oj-lg-10 oj-md-9 oj-sm-12 oj-flex-item">    
+            <div class="oj-flex">
+              <div class="oj-lg-6 oj-md-6 oj-sm-12 oj-flex-item">
+                <oj-paging-control id="paging" data="[[dataSource]]" page-size="3"></oj-paging-control>
+              </div>
+            </div>
+            <oj-popup id="popup1" class="demo-popup" tail="none" position.my.horizontal="center" 
+            position.my.vertical="bottom" position.at.horizontal="center" position.at.vertical="bottom" position.of="window" 
+            position.offset.y="-10" modality="modal" on-oj-animate-start="[[startAnimationListener]]">
+            <div>
+                <img id=imgOne src='https://image.tmdb.org/t/p/w185/iZdih9zQAqxNadp0ScHyYRXsXLf.jpg' height: '172px', width: '100%'>
+            </div>
+            <div id="selMovieContent">
+                <oj-list-view id="listview" aria-label="list with static data" selection-mode="multiple">
+                        <ul>
+                            <li id="amybartlet">
+                                <span class="avatar"></span>
+                                <div class="container">
+                                    <div>
+                                        <span class="name">Title : </span><span class="name"><oj-bind-text value="[[selTitle]]"></oj-bind-text></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="amybartlet">
+                                <div class="container">
+                                    <div>
+                                        <span class="name">Votes Cnt: </span><span class="name"><oj-bind-text value="[[selVoteCount]]"></oj-bind-text></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="amybartlet">
+                                <div class="container">
+                                    <div>
+                                        <span class="name">Votes Average : </span><span class="name"><oj-bind-text value="[[selVoteAverage]]"></oj-bind-text></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="amybartlet">
+                                <div class="container">
+                                    <div>
+                                        <span class="name">Release Date : </span><span class="name"><oj-bind-text value="[[selReleaseDate]]"></oj-bind-text></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="amybartlet">
+                                    <div class="container">
+                                        <div>
+                                            <span class="name">Overview : </span><span class="name"><oj-bind-text value="[[selOverview]]"></oj-bind-text></span>
+                                        </div>
+                                    </div>
+                                </li>
+                        </ul>
+                </oj-list-view>
+            </div>
+            </oj-popup>
+            <oj-list-view id="listview" aria-label="list with external sort and filter controls" style="width:100%"
+                 data="[[dataSource]]" selection-mode="single" on-selection-changed="[[openListener]]">
+                <template slot="itemTemplate">
+                    <div id=img1 class="oj-flex">
+                        <div class="oj-lg-3 oj-md-3 oj-sm-4 oj-flex-item" style="max-width:150px;padding-left:0;padding-right:10px">
+                            <div data-bind="style: { backgroundImage: 'url('+ [[imagePath]] + $current.data.poster_path +')', 
+                                 backgroundRepeat: 'no-repeat', backgroundSize: '100%', backgroundPosition: 'center', 
+                                 height: '172px', width: '100%' }">
+                            </div>
+                        </div>
+                        <div class="oj-lg-9 oj-md-9 oj-sm-8 oj-flex-item">
+                            <div class="oj-flex">
+                                <div class="oj-lg-9 oj-md-9 oj-sm-12 oj-flex-item">
+                                    <div>
+                                        <div><h4><a href="#"><oj-bind-text value="[[$current.data.title]]"></oj-bind-text></a></h4></div>
+                                    </div>
+                                    <div>
+                                        <div><span>Release Date : </oj-bind-text><a href="#"><oj-bind-text value="[[$current.data.release_date]]"></oj-bind-text></a></span></div>
+                                    </div>
+                                    <div class="oj-flex">
+                                        <div class="oj-lg-12 oj-md-12 oj-sm-12 oj-flex-item" style="padding:0">
+                                            <div style="width:100%">
+                                                <oj-rating-gauge   value="[[$current.data.vote_average]]" converter='{"type":"number"}' readonly style="width:86px;height:20px;display:inline-block;vertical-align:text-bottom">
+                                                </oj-rating-gauge>
+                                                <span><oj-bind-text value="[[$current.data.vote_average]]"></oj-bind-text></span>
+                                                <span>(<a href="#" class="tab-link"><oj-bind-text value="[[$current.data.VOTES]]"></oj-bind-text> Votes</a>)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="oj-lg-3 oj-md-3 oj-sm-12 oj-flex-item">
+                                    <div>
+                                        <div style="padding: 5px 0">
+                                            <oj-button id="viewDetail" on-oj-action="[[openListener]]">View Detail
+                                            </oj-button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </oj-list-view>
+          </div>
+       </div>
+      </div>
+  </div>
+</div>
