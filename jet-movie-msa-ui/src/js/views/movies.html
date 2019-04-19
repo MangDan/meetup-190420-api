@@ -84,7 +84,7 @@
                                     <div class="oj-flex">
                                         <div class="oj-lg-12 oj-md-12 oj-sm-12 oj-flex-item" style="padding:0">
                                             <div style="width:100%">
-                                                <oj-rating-gauge   value="[[$current.data.vote_average]]" converter='{"type":"number"}' readonly style="width:86px;height:20px;display:inline-block;vertical-align:text-bottom">
+                                                <oj-rating-gauge value="[[$current.data.vote_average]]" readonly style="width:86px;height:20px;display:inline-block;vertical-align:text-bottom">
                                                 </oj-rating-gauge>
                                                 <span><oj-bind-text value="[[$current.data.vote_average]]"></oj-bind-text></span>
                                                 <span>(<a href="#" class="tab-link"><oj-bind-text value="[[$current.data.VOTES]]"></oj-bind-text> Votes</a>)</span>
@@ -96,7 +96,7 @@
                                 <div class="oj-lg-3 oj-md-3 oj-sm-12 oj-flex-item">
                                     <div>
                                         <div style="padding: 5px 0">
-                                            <oj-button id="viewDetail" on-oj-action="[[openListener]]">View Detail
+                                            <oj-button id="{{$current.data.id}}" on-oj-action="[[openListener]]">View Detail
                                             </oj-button>
                                         </div>
                                     </div>

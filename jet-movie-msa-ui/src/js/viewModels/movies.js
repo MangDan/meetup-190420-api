@@ -52,6 +52,7 @@ function(oj, ko, $, endpoints) {
 
         self.openListener = function (event)
         {
+            console.log(event.target.id);
             var sel = event.target.firstSelectedItem;
             // not implemented
 
