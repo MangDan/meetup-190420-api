@@ -44,7 +44,7 @@ public class MovieRepository {
         clause = "WHERE TITLE LIKE ? || '%'";
         
         StringBuffer queryBuffer = new StringBuffer();
-        queryBuffer.append("SELECT ID, TITLE, POSTER_PATH, VOTE_COUNT, VOTE_AVERAGE, RELEASE_DATE FROM MOVIE " + clause + " ORDER BY ID DESC");
+        queryBuffer.append("SELECT ID, TITLE, POSTER_PATH, VOTE_COUNT, VOTE_AVERAGE, RELEASE_DATE FROM MOVIE " + clause + " ROWNUM <= 50 ORDER BY ID DESC");
 
         try {
             Connection conn = this.dataSource.getConnection();

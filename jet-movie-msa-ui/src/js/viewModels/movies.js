@@ -18,14 +18,17 @@ function(oj, ko, $, endpoints) {
 
     // not implemented yet
     function MovieDetail(){
-        $.getJSON("https://private-df8a0-api722.apiary-mock.com/api/search/v1/movies/278", function (data) {
+        var url = JSON.parse(endpoints).movies;
+        var image = JSON.parse(endpoints).image;
+        $.getJSON(url+"/"+self.movieId(), function (data) {
             $.each(data, function () {
-                self.selTitle(this.title);
-                self.selVoteCount(this.vote_count);
-                self.selVoteAverage(this.vote_average);
-                self.selPosterPath(this.poster_path);
-                self.selReleaseDate(this.release_date);
-                self.selOverview(this.overview);
+                console.log(data.title)
+                self.selTitle(data.title);
+                self.selVoteCount(data.vote_count);
+                self.selVoteAverage(data.vote_average);
+                self.selPosterPath(image + "/" + data.poster_path);
+                self.selReleaseDate(data.release_date);
+                self.selOverview(data.overview);
             });
         })
     }
@@ -50,9 +53,11 @@ function(oj, ko, $, endpoints) {
         // Implement if needed
         };
 
+        self.movieId = ko.observable();
+
         self.openListener = function (event)
         {
-            console.log(event.target.id);
+            movieId(event.target.id);
             var sel = event.target.firstSelectedItem;
             // not implemented
 

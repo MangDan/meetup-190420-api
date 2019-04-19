@@ -13,11 +13,11 @@
                 <oj-paging-control id="paging" data="[[dataSource]]" page-size="3"></oj-paging-control>
               </div>
             </div>
-            <oj-popup id="popup1" class="demo-popup" tail="none" position.my.horizontal="center" 
+            <oj-popup id="popup1" style="width:500px" class="demo-popup" tail="none" position.my.horizontal="center" 
             position.my.vertical="bottom" position.at.horizontal="center" position.at.vertical="bottom" position.of="window" 
             position.offset.y="-10" modality="modal" on-oj-animate-start="[[startAnimationListener]]">
             <div>
-                <img id=imgOne src='https://image.tmdb.org/t/p/w185/iZdih9zQAqxNadp0ScHyYRXsXLf.jpg' height: '172px', width: '100%'>
+                <img id=imgOne data-bind="attr: {'src': selPosterPath}" height: '172px', width: '100%'>
             </div>
             <div id="selMovieContent">
                 <oj-list-view id="listview" aria-label="list with static data" selection-mode="multiple">
@@ -53,8 +53,8 @@
                             </li>
                             <li id="amybartlet">
                                     <div class="container">
-                                        <div>
-                                            <span class="name">Overview : </span><span class="name"><oj-bind-text value="[[selOverview]]"></oj-bind-text></span>
+                                        <div style="width:100%;height:300px;overflow: true">
+                                            <oj-bind-text value="[[selOverview]]"></oj-bind-text>
                                         </div>
                                     </div>
                                 </li>
@@ -63,7 +63,7 @@
             </div>
             </oj-popup>
             <oj-list-view id="listview" aria-label="list with external sort and filter controls" style="width:100%"
-                 data="[[dataSource]]" selection-mode="single" on-selection-changed="[[openListener]]">
+                 data="[[dataSource]]" selection-mode="single">
                 <template slot="itemTemplate">
                     <div id=img1 class="oj-flex">
                         <div class="oj-lg-3 oj-md-3 oj-sm-4 oj-flex-item" style="max-width:150px;padding-left:0;padding-right:10px">
@@ -96,7 +96,7 @@
                                 <div class="oj-lg-3 oj-md-3 oj-sm-12 oj-flex-item">
                                     <div>
                                         <div style="padding: 5px 0">
-                                            <oj-button id="{{$current.data.id}}" on-oj-action="[[openListener]]">View Detail
+                                            <oj-button data-bind="attr: {'id': $current.data.id}" on-oj-action="[[openListener]]">View Detail
                                             </oj-button>
                                         </div>
                                     </div>
