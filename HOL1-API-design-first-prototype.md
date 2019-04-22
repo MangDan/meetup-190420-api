@@ -367,10 +367,10 @@ API 설계 문서를 작성하고 Mock Test를 하기 위한 Apiary 계정을 �
 > **영화 조회**, **영화 상세 조회**, **영화인 정보 리소스**, **영화인 상세 조회**를 클릭하여 각각의 서비스 URL, 요청 파리미터 및 JSON 응답, Mock URL을 확인할 수 있습니다. 
 > 우측 상단의 Save 버튼을 클릭하여 저장합니다.  
 > ![apiary_write_complete](images/apiary_write_complete.png)
+</details>
+
 <details>
-  
-<details>
-<summary>4. API Prototype 환경 구성하기</summary>
+<summary>3. API Prototype 환경 구성하기</summary>
 API Prototype을 위해서 Oracle JET 설치 환경을 구성합니다.  
 
 먼저 깃헙 레파지토리를 다운로드 받아서 압축을 해제합니다.  
