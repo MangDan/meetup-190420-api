@@ -186,7 +186,35 @@ API 설계 문서를 작성하고 Mock Test를 하기 위한 Apiary 계정을 �
 >
 >```
 
-> 2.2. API Blueprint [완성본]
+> 2.2. 위 API Blueprint문서를 붙여넣기 하고 아래 해당 라인에 비어있는 부분을 동일하게 입력합니다.
+>```markdown
+>10 : ## 영화 정보 리소스 [/api/search/v1/movies]
+>
+>12 : ### 영화 조회 [GET /api/search/v1/movies{?title}]
+>
+>21 : + Parameters
+>22 :(탭 입력) + title : 대부 (string, optional) – 제목
+>
+>69 : ### 영화 상세 조회 [GET /api/search/v1/movies/{id}]
+>
+>133 : # Data Structures
+>
+>135 : ## MoviePeople (object)
+>136 : + Include MoviePeopleMeta
+>137 : + filmography : 쇼생크 탈출 (string, optional) - 필모그래피
+>
+>139 : ## MoviePeopleMeta (object)
+>140 : + id : 10084614 (number, required) - 아이디
+>141 : + name : 프랭크 다라본트 (string, required) – 이름
+>142 : + role : 감독 (string, optional) - 역할
+>
+>116 :(탭 입력) + Attributes (array[MoviePeopleMeta])
+>
+>131 :(탭 입력) + Attributes (MoviePeople)
+>```
+
+
+> 2.3. 아래는 API Blueprint 완성본입니다.
 >```markdown
 >FORMAT: 1A
 >HOST: http://polls.apiblueprint.org/
@@ -340,3 +368,35 @@ API 설계 문서를 작성하고 Mock Test를 하기 위한 Apiary 계정을 �
 > 우측 상단의 Save 버튼을 클릭하여 저장합니다.  
 > ![apiary_write_complete](images/apiary_write_complete.png)
 <details>
+  
+<details>
+<summary>4. API Prototype 환경 구성하기</summary>
+API Prototype을 위해서 Oracle JET 설치 환경을 구성합니다.  
+
+먼저 깃헙 레파지토리를 다운로드 받아서 압축을 해제합니다.  
+
+오라클 JET (UI) 프로젝트안으로 이동, 소스내 URL을 API Gateway의 Endpoint 확인  
+아래 API 주소는 Oracle API Gateway의 주소입니다.  
+jet-movie-msa-ui/src/js/endpoints.json
+```
+{
+        "movies": "http://132.145.161.244:8011/api/search/v1/movies",
+        "image": "https://image.tmdb.org/t/p/w185"
+}
+```
+
+JET UI를 시작하기 위해서 Oracle JET CLI를 설치 후 다운로드 받은 jet-movie-msa-ui 폴더로 이동하여 node module을 설치합니다.
+```
+npm install -g @oracle/ojet-cli
+
+cd jet-movie-msa-ui
+
+npm install @oracle/oraclejet-tooling --save
+
+ojet serve
+```
+</details>
+
+  
+  
+  
