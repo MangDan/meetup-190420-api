@@ -127,20 +127,10 @@ public final class Main {
         return true;
     }
 
-    /**
-     * Start the server.
-     * @return the created {@link Server} instance
-     */
     static Server startServer() {
-        // Server will automatically pick up configuration from
-        // microprofile-config.properties
-        // and Application classes annotated as @ApplicationScoped
         return Server.create().start();
     }
 
-    /**
-     * Configure logging from logging.properties file.
-     */
     private static void setupLogging() throws IOException {
         // load logging configuration
         LogManager.getLogManager().readConfiguration(

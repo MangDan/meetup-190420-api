@@ -22,7 +22,7 @@ pod: abcdef
 $env:
     $pod:
         logging:
-            level: ERROR
+            level: WARNING
 
         app:
             greeting:  Hello

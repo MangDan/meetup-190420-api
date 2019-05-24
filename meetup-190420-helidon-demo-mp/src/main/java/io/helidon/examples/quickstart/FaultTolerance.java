@@ -10,9 +10,6 @@ import org.eclipse.microprofile.faulttolerance.Fallback;
 import org.eclipse.microprofile.faulttolerance.Retry;
 import org.eclipse.microprofile.faulttolerance.Timeout;
 
-/**
- * @author Jose Henrique Ventura 03 Feb 2019
- */
 @ApplicationScoped
 public class FaultTolerance {
     private static final Logger LOGGER = Logger.getLogger(FaultTolerance.class.getName());
@@ -25,20 +22,11 @@ public class FaultTolerance {
         return longRunningTask();
     }
 
-    /**
-     * 
-     * @return Status of the Day
-     */
     public String fallback(){
         LOGGER.log(Level.WARNING, "[폴백] A beautiful day");
         return "A beautiful day";
     }
 
-    /**
-     * Simulate a long processing task of 80ms
-     * 
-     * @return null
-     */
     private String longRunningTask(){
         try {
             Thread.sleep(100000);
